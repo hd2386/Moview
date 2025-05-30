@@ -12,11 +12,9 @@ This project is a web application that allows you to discover popular movies and
 ## 🚀 Technologies Used
 
 - **Framework:** [Next.js](https://nextjs.org/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/) (or JavaScript)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **API:** [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api) (or another API you are using)
-- **State Management:** (Specify if you are using one, e.g., Zustand, Redux Toolkit)
-- **Deployment:** [Netlify](https://netlify.com/) (or another platform you are using)
+- **Language:** [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)
+- **Styling:** Custom CSS classes (globals.css and media.css)
+- **API:** [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api)
 
 ## 🛠️ Setup
 
@@ -61,5 +59,3 @@ Follow these steps to run the project locally:
 ![moview_2](./public/moview_2.png)
 
 ---
-
-You can further enhance this README file according to the specific needs of your project. For example, you can add more details about your API endpoints, a section about the project's architecture, or known issues and solutions.

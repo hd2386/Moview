@@ -11,7 +11,7 @@ export default function SearchedMoviesPage({ data, query }) {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="search-container">
         <h2 className="search-results">Search results for {query} :</h2>
         {movies.length > 0 ? (
           <MovieApp movies={movies} />
@@ -19,17 +19,6 @@ export default function SearchedMoviesPage({ data, query }) {
           <p>No movies found for {query}</p>
         )}
       </div>
-
-      <style jsx>{`
-        .container {
-          padding: 2rem;
-        }
-        .search-results {
-          color: #fff;
-          font-size: 1.5rem;
-          margin-left: 2rem;
-        }
-      `}</style>
       <Footer />
     </div>
   );

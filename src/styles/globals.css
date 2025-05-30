@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+@import url("./media.css");
 
 * {
   box-sizing: border-box;
@@ -29,10 +30,11 @@ header h1 {
   color: #fff;
   cursor: pointer;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Arada bir boşluk bırakmak için */
+  margin-top: 20px;
 }
 
 nav ul {
@@ -43,7 +45,7 @@ nav ul {
 }
 
 nav li {
-  margin-right: 50px; /* Her öğe arasına boşluk eklemek için */
+  margin-right: 50px;
 }
 
 nav li a {
@@ -188,38 +190,105 @@ footer small {
   color: #8197a4;
   font-size: 0.8rem;
 }
-@media only screen and (max-width: 1400px) {
-  nav ul {
-    margin-right: 0;
-    flex-direction: row;
-    margin-left: 30px;
-  }
 
-  nav li {
-    margin-right: 30px;
-    margin-bottom: 10px;
-  }
-
-  .search {
-    margin: 0.5rem 0;
-    max-width: 200px;
-  }
+/* Movie Details Page Styles */
+.movie-details-container {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: 60px;
 }
-@media only screen and (max-width: 1615px) {
-  nav ul {
-    margin-right: 0;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 30px;
-  }
 
-  nav li {
-    margin-right: 30px;
-    margin-bottom: 10px;
-  }
+.video-section,
+.credits-section {
+  flex: 1;
+  text-align: center;
+}
 
-  .search {
-    margin: 0.5rem 0;
-    max-width: 350px;
-  }
+.movie-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.similar-title {
+  color: white;
+  margin: 2rem;
+}
+
+.credits-section {
+  color: white;
+}
+
+.credits-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cast-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.profile-image {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+.actor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.actor-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.character {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.popularity {
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  width: fit-content;
+}
+
+.popularity.green {
+  background-color: #3d8b3d;
+}
+
+.popularity.orange {
+  background-color: #f0ad4e;
+}
+
+.popularity.red {
+  background-color: #d9534f;
+}
+
+/* Movie Page Styles */
+.page-container {
+  padding: 2rem;
+  margin-top: 60px;
+}
+
+/* Search Results Page Styles */
+.search-container {
+  padding: 2rem;
+}
+
+.search-results {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 2rem;
 }

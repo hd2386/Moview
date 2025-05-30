@@ -29,7 +29,7 @@ export default function MovieDetails({
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="movie-details-container">
         <div className="video-section">
           <h1 className="movie-title">{movie.title}</h1>
           {trailers.length > 0 && (
@@ -74,78 +74,6 @@ export default function MovieDetails({
           </ul>
         </div>
       </div>
-
-      <style jsx>{`
-        .container {
-          display: flex;
-          padding: 2rem;
-          gap: 2rem;
-          margin-top: 60px;
-        }
-        .video-section,
-        .credits-section {
-          flex: 1;
-          text-align: center;
-        }
-        .movie-title {
-          color: white;
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        .similar-title {
-          color: white;
-          margin: 2rem;
-        }
-        .credits-section {
-          color: white;
-        }
-        ul {
-          list-style: none;
-          padding: 0;
-        }
-        .cast-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 1rem;
-          background: rgba(0, 0, 0, 0.2);
-          padding: 1rem;
-          border-radius: 8px;
-        }
-        .profile-image {
-          width: 60px;
-          height: 90px;
-          object-fit: cover;
-          border-radius: 4px;
-          margin-right: 1rem;
-        }
-        .actor-info {
-          display: flex;
-          flex-direction: column;
-        }
-        .actor-name {
-          font-weight: bold;
-          font-size: 1.1rem;
-        }
-        .character {
-          color: #aaa;
-          font-size: 0.9rem;
-        }
-        .popularity {
-          padding: 0.2rem 0.4rem;
-          border-radius: 3px;
-          font-size: 0.8rem;
-          width: fit-content;
-        }
-        .green {
-          background-color: #3d8b3d;
-        }
-        .orange {
-          background-color: #f0ad4e;
-        }
-        .red {
-          background-color: #d9534f;
-        }
-      `}</style>
       <Footer />
     </div>
   );

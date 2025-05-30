@@ -10,7 +10,7 @@ export default function MoviePage({ data, type }) {
         <title>{type.charAt(0).toUpperCase() + type.slice(1)} Movies</title>
       </Head>
       <Navbar />
-      <div>
+      <div className="page-container">
         <h1 style={{ display: "none" }}>
           {type.charAt(0).toUpperCase() + type.slice(1)} Movies
         </h1>

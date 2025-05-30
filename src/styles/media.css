@@ -1,0 +1,172 @@
+/* Media Queries for Responsive Design */
+
+/* Large Desktop Screens */
+@media only screen and (max-width: 1615px) {
+  nav ul {
+    margin-right: 0;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  nav li {
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+
+  .search {
+    margin: 0.5rem 0;
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  nav ul {
+    margin-right: 0;
+    flex-direction: row;
+    margin-left: 30px;
+  }
+
+  nav li {
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+
+  .search {
+    margin: 0.5rem 0;
+    max-width: 200px;
+  }
+}
+
+/* Tablet Screens */
+@media (max-width: 1024px) {
+  /* Movie Details Page */
+  .movie-details-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .movie-details-container iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+  }
+
+  /* Movie Page */
+  .page-container {
+    padding: 1.5rem;
+    margin-top: 70px;
+  }
+
+  /* Search Results Page */
+  .search-container {
+    padding: 1.5rem;
+  }
+
+  .search-results {
+    margin-left: 1.5rem;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  /* Movie Details Page */
+  .movie-details-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    margin-top: 80px;
+  }
+
+  .movie-details-container iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .similar-title {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  .cast-item {
+    padding: 0.75rem;
+  }
+
+  .profile-image {
+    width: 50px;
+    height: 75px;
+  }
+
+  /* Movie Page */
+  .page-container {
+    padding: 1rem;
+    margin-top: 80px;
+  }
+
+  /* Search Results Page */
+  .search-container {
+    padding: 1rem;
+  }
+
+  .search-results {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    text-align: center;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  /* Movie Details Page */
+  .movie-details-container {
+    padding: 0.5rem;
+    margin-top: 70px;
+  }
+
+  .movie-details-container iframe {
+    height: 200px;
+  }
+
+  .movie-title {
+    font-size: 1.2rem;
+  }
+
+  .cast-item {
+    padding: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 60px;
+    height: 90px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .actor-info {
+    align-items: center;
+  }
+
+  /* Movie Page */
+  .page-container {
+    padding: 0.5rem;
+    margin-top: 70px;
+  }
+
+  /* Search Results Page */
+  .search-container {
+    padding: 0.5rem;
+  }
+
+  .search-results {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    text-align: center;
+  }
+}
