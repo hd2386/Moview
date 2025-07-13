@@ -2,44 +2,47 @@
 
 /* Large Desktop Screens */
 @media only screen and (max-width: 1615px) {
-  nav ul {
-    margin-right: 0;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 30px;
+  .nav-left {
+    gap: 1.5rem;
   }
 
   nav li {
     margin-right: 30px;
-    margin-bottom: 10px;
   }
 
   .search {
-    margin: 0.5rem 0;
     max-width: 350px;
   }
 }
 
 @media only screen and (max-width: 1400px) {
-  nav ul {
-    margin-right: 0;
-    flex-direction: row;
-    margin-left: 30px;
+  .nav-left {
+    gap: 1rem;
   }
 
   nav li {
-    margin-right: 30px;
-    margin-bottom: 10px;
+    margin-right: 25px;
   }
 
   .search {
-    margin: 0.5rem 0;
-    max-width: 200px;
+    max-width: 250px;
   }
 }
 
 /* Tablet Screens */
 @media (max-width: 1024px) {
+  .nav-left {
+    gap: 0.75rem;
+  }
+
+  nav li {
+    margin-right: 20px;
+  }
+
+  .search {
+    max-width: 200px;
+  }
+
   /* Movie Details Page */
   .movie-details-container {
     padding: 1.5rem;
@@ -68,14 +71,108 @@
   }
 }
 
-/* Mobile Landscape */
+/* Mobile Landscape and below */
 @media (max-width: 768px) {
+  .nav-left {
+    gap: 0.5rem;
+  }
+
+  /* Mobile Controls */
+  .mobile-controls {
+    display: flex !important;
+  }
+
+  .search-icon-btn {
+    display: block !important;
+  }
+
+  .mobile-search {
+    display: block !important;
+  }
+
+  /* Hide Desktop Search on Mobile */
+  .desktop-search {
+    display: none !important;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: flex !important;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background-color: var(--assistant-color);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    margin-top: 0;
+    padding-top: 80px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  nav.nav-open {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin: 0;
+    text-align: center;
+  }
+
+  nav li {
+    margin: 1rem 0;
+  }
+
+  nav li a {
+    font-size: 1.5rem;
+  }
+
+  /* Remove form from nav on mobile since we have mobile search */
+  nav form {
+    display: none;
+  }
+
+  /* Mobile menu overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
   /* Movie Details Page */
   .movie-details-container {
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
     margin-top: 80px;
+  }
+
+  .video-section {
+    order: 1;
+  }
+
+  .credits-section {
+    order: 2;
   }
 
   .movie-details-container iframe {
@@ -95,11 +192,24 @@
 
   .cast-item {
     padding: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .profile-image {
     width: 50px;
     height: 75px;
+  }
+
+  .actor-info {
+    flex: 1;
+  }
+
+  .actor-name {
+    font-size: 1rem;
+  }
+
+  .character {
+    font-size: 0.85rem;
   }
 
   /* Movie Page */
@@ -108,9 +218,21 @@
     margin-top: 80px;
   }
 
+  /* Main movie grid */
+  main {
+    padding: 0 1rem;
+  }
+
+  .movie {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem auto;
+  }
+
   /* Search Results Page */
   .search-container {
     padding: 1rem;
+    margin-top: 80px;
   }
 
   .search-results {
@@ -118,10 +240,39 @@
     margin-left: 1rem;
     text-align: center;
   }
+
+  /* Footer */
+  footer {
+    padding: 1rem;
+    text-align: center;
+  }
 }
 
 /* Mobile Portrait */
 @media (max-width: 480px) {
+  header {
+    padding: 0.75rem;
+  }
+
+  .nav-left {
+    gap: 0.25rem;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+  }
+
+  /* Navigation */
+  nav {
+    width: 300px;
+    right: -300px;
+  }
+
+  nav li a {
+    font-size: 1.3rem;
+  }
+
   /* Movie Details Page */
   .movie-details-container {
     padding: 0.5rem;
@@ -136,21 +287,38 @@
     font-size: 1.2rem;
   }
 
+  .similar-title {
+    font-size: 1.1rem;
+    margin: 0.75rem 0;
+  }
+
   .cast-item {
     padding: 0.5rem;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    text-align: left;
   }
 
   .profile-image {
-    width: 60px;
-    height: 90px;
-    margin-right: 0;
-    margin-bottom: 0.5rem;
+    width: 45px;
+    height: 70px;
+    margin-right: 0.75rem;
   }
 
   .actor-info {
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .actor-name {
+    font-size: 0.9rem;
+  }
+
+  .character {
+    font-size: 0.8rem;
+  }
+
+  .popularity {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.3rem;
   }
 
   /* Movie Page */
@@ -159,14 +327,58 @@
     margin-top: 70px;
   }
 
+  /* Movie Grid */
+  .movie {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .movie img {
+    width: 100%;
+    height: auto;
+  }
+
   /* Search Results Page */
   .search-container {
     padding: 0.5rem;
+    margin-top: 70px;
   }
 
   .search-results {
     font-size: 1.1rem;
     margin-left: 0.5rem;
     text-align: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .movie-title {
+    font-size: 1.1rem;
+  }
+
+  .cast-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .profile-image {
+    width: 60px;
+    height: 90px;
+    margin: 0 auto 0.5rem auto;
+  }
+
+  .actor-info {
+    align-items: center;
+  }
+
+  nav li a {
+    font-size: 1.2rem;
   }
 }

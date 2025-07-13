@@ -23,6 +23,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 header h1 {
@@ -31,9 +32,139 @@ header h1 {
   cursor: pointer;
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Controls Container */
+.mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile Search Icon Button */
+.search-icon-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #fff;
+  z-index: 1001;
+}
+
+.search-icon-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.search-icon-btn:hover {
+  color: rgb(179, 177, 177);
+}
+
+/* Mobile Search Input */
+.mobile-search {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--assistant-color);
+  padding: 1rem;
+  z-index: 1002;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-search.active {
+  transform: translateY(0);
+}
+
+.mobile-search .search {
+  width: 100%;
+  margin: 0;
+  background-color: var(--main-color);
+  border: 0;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
+.mobile-search .search:focus {
+  outline: none;
+  transform: none;
+}
+
+/* Search Overlay */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Desktop Search */
+.desktop-search {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  z-index: 1;
+}
+
+/* Navigation Left Container */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -41,7 +172,8 @@ nav ul {
   display: flex;
   list-style: none;
   padding: 0;
-  margin-right: 570px;
+  margin: 0;
+  margin-left: 100px;
 }
 
 nav li {
