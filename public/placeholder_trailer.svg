@@ -1,0 +1,20 @@
+<svg viewBox="0 0 700 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="400" fill="#1a242e" />
+  <circle cx="350" cy="200" r="40" fill="#566b84" opacity="0.5" />
+  <path
+    d="M 330 180 L 330 220 L 370 200 Z"
+    fill="#8197a4"
+  />
+  <text
+    x="350"
+    y="260"
+    font-family="Arial, sans-serif"
+    font-size="18"
+    fill="#8197a4"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    No Trailer Available
+  </text>
+</svg>
+

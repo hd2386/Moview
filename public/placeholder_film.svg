@@ -1,0 +1,15 @@
+<svg width="300" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arka plan -->
+  <rect width="300" height="450" fill="#1a242e" />
+  
+  <!-- Beyaz çerçeve -->
+  <rect x="50" y="50" width="200" height="350" fill="none" stroke="#566b84" stroke-width="3" rx="4" />
+
+  <!-- Dağlar (üçgenler) -->
+  <path d="M 70 350 L 110 280 L 150 350 Z" fill="#566b84" opacity="0.6" />
+  <path d="M 155 350 L 195 290 L 235 350 Z" fill="#566b84" opacity="0.6" />
+  
+  <!-- Güneş/Ay (daire) -->
+  <circle cx="200" cy="120" r="25" fill="#8197a4" opacity="0.5" />
+</svg>
+

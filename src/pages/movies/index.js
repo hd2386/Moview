@@ -1,8 +1,25 @@
 import MoviePage from "../../components/MoviePage";
+import {
+  getCachedData,
+  setCachedData,
+  generateCacheKey,
+} from "../../utils/apiCache";
 
 export async function getServerSideProps(context) {
   const { query } = context;
   const { type = "upcoming" } = query;
+
+  // Check cache first
+  const cacheKey = generateCacheKey(`movies_${type}`);
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData) {
+    return {
+      props: {
+        data: cachedData,
+        type,
+      },
+    };
+  }
 
   const options = {
     method: "GET",
@@ -13,21 +30,26 @@ export async function getServerSideProps(context) {
   };
 
   try {
-    const allResults = [];
-
-    // Fetch 5 pages
-    for (let page = 1; page <= 5; page++) {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${type}?language=en-US&page=${page}`,
+    // Fetch pages in parallel instead of sequentially
+    const pagePromises = Array.from({ length: 5 }, (_, i) =>
+      fetch(
+        `https://api.themoviedb.org/3/movie/${type}?language=en-US&page=${
+          i + 1
+        }`,
         options
-      );
-      const data = await response.json();
-      allResults.push(...data.results);
-    }
+      ).then((res) => res.json())
+    );
+
+    const pages = await Promise.all(pagePromises);
+    const allResults = pages.flatMap((page) => page.results || []);
+    const resultData = { results: allResults };
+
+    // Cache the result
+    setCachedData(cacheKey, resultData);
 
     return {
       props: {
-        data: { results: allResults },
+        data: resultData,
         type,
       },
     };

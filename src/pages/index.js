@@ -6,7 +6,7 @@ export default function Home() {
 
   useEffect(() => {
     router.push("/movies?type=upcoming");
-  }, []);
+  }, [router]);
 
   return null;
 }

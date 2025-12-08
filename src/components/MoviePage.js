@@ -2,21 +2,24 @@ import Head from "next/head";
 import MovieApp from "./MovieApp";
 import Navbar from "./navbar";
 import Footer from "./Footer";
+import { memo } from "react";
 
-export default function MoviePage({ data, type }) {
+function MoviePage({ data, type }) {
+  const title = type.charAt(0).toUpperCase() + type.slice(1);
+
   return (
     <>
       <Head>
-        <title>{type.charAt(0).toUpperCase() + type.slice(1)} Movies</title>
+        <title>{title} Movies</title>
       </Head>
       <Navbar />
       <div className="page-container">
-        <h1 style={{ display: "none" }}>
-          {type.charAt(0).toUpperCase() + type.slice(1)} Movies
-        </h1>
+        <h1 style={{ display: "none" }}>{title} Movies</h1>
         <MovieApp movies={data.results} />
       </div>
       <Footer />
     </>
   );
 }
+
+export default memo(MoviePage);

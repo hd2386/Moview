@@ -1,7 +1,21 @@
 import MovieDetails from "../../components/MovieDetails";
+import {
+  getCachedData,
+  setCachedData,
+  generateCacheKey,
+} from "../../utils/apiCache";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
+
+  // Check cache first
+  const cacheKey = generateCacheKey(`movie_${id}`);
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData) {
+    return {
+      props: cachedData,
+    };
+  }
 
   const options = {
     method: "GET",
@@ -35,14 +49,19 @@ export async function getServerSideProps(context) {
       similarRes.json(),
     ]);
 
+    const result = {
+      movie,
+      videos,
+      credits,
+      similar,
+      movieId: id,
+    };
+
+    // Cache the result
+    setCachedData(cacheKey, result);
+
     return {
-      props: {
-        movie,
-        videos,
-        credits,
-        similar,
-        movieId: id,
-      },
+      props: result,
     };
   } catch (error) {
     console.error("Error:", error);

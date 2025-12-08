@@ -1,4 +1,6 @@
-export default function Footer() {
+import { memo } from "react";
+
+function Footer() {
   return (
     <footer>
       <h3>MOVIEW</h3>
@@ -11,3 +13,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

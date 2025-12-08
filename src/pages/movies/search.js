@@ -1,4 +1,9 @@
 import SearchedMoviesPage from "../../components/searchedMovies";
+import {
+  getCachedData,
+  setCachedData,
+  generateCacheKey,
+} from "../../utils/apiCache";
 
 export default function SearchPage(props) {
   return <SearchedMoviesPage {...props} />;
@@ -6,6 +11,24 @@ export default function SearchPage(props) {
 
 export async function getServerSideProps(context) {
   const searchTerm = context.query?.query || "";
+
+  if (!searchTerm.trim()) {
+    return {
+      props: {
+        data: { results: [] },
+        query: "",
+      },
+    };
+  }
+
+  // Check cache first
+  const cacheKey = generateCacheKey(`search_${searchTerm}`);
+  const cachedData = getCachedData(cacheKey);
+  if (cachedData) {
+    return {
+      props: cachedData,
+    };
+  }
 
   const options = {
     method: "GET",
@@ -28,12 +51,16 @@ export async function getServerSideProps(context) {
     }
 
     const data = await response.json();
+    const result = {
+      data,
+      query: searchTerm,
+    };
+
+    // Cache the result
+    setCachedData(cacheKey, result);
 
     return {
-      props: {
-        data,
-        query: searchTerm,
-      },
+      props: result,
     };
   } catch (error) {
     console.error("Error fetching movies:", error);

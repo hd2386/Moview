@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 
 export default function Navbar() {
@@ -7,34 +7,55 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const router = useRouter();
+  const debounceTimer = useRef(null);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(
-        `/movies/search?query=${encodeURIComponent(searchTerm.trim())}`
-      );
-      setIsSearchOpen(false); // Close search after submission
-    }
-  };
+  const handleSearch = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (searchTerm.trim()) {
+        router.push(
+          `/movies/search?query=${encodeURIComponent(searchTerm.trim())}`
+        );
+        setIsSearchOpen(false);
+      }
+    },
+    [searchTerm, router]
+  );
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setIsSearchOpen(false); // Close search when menu opens
-  };
+  useEffect(() => {
+    const timer = debounceTimer.current;
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, []);
 
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    setIsMenuOpen(false); // Close menu when search opens
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => {
+      setIsSearchOpen(false);
+      return !prev;
+    });
+  }, []);
 
-  const closeMenu = () => {
+  const toggleSearch = useCallback(() => {
+    setIsSearchOpen((prev) => {
+      setIsMenuOpen(false);
+      return !prev;
+    });
+  }, []);
+
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
-  };
+  }, []);
 
-  const closeSearch = () => {
+  const closeSearch = useCallback(() => {
     setIsSearchOpen(false);
-  };
+  }, []);
+
+  const handleSearchChange = useCallback((e) => {
+    setSearchTerm(e.target.value);
+  }, []);
 
   return (
     <>
@@ -90,7 +111,7 @@ export default function Navbar() {
               className="search"
               placeholder="Search movies"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
             />
           </form>
         </div>
@@ -136,7 +157,7 @@ export default function Navbar() {
               className="search"
               placeholder="Search movies"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
               autoFocus
             />
           </form>

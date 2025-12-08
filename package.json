@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "baseline-browser-mapping": "^2.9.4",
+    "caniuse-lite": "^1.0.30001759",
+    "next": "14.2.14",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.14"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",

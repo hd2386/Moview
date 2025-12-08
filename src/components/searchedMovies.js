@@ -2,11 +2,10 @@
 import MovieApp from "./MovieApp";
 import Navbar from "./navbar";
 import Footer from "./Footer";
+import { useMemo, memo } from "react";
 
-export default function SearchedMoviesPage({ data, query }) {
-  // Ensure to provide a fallback to an empty array
-  const movies = data?.results || [];
-  //console.log(movies);
+function SearchedMoviesPage({ data, query }) {
+  const movies = useMemo(() => data?.results || [], [data?.results]);
 
   return (
     <div>
@@ -23,3 +22,5 @@ export default function SearchedMoviesPage({ data, query }) {
     </div>
   );
 }
+
+export default memo(SearchedMoviesPage);
