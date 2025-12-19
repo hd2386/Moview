@@ -1,5 +1,6 @@
 
-<img width="300" height="300" alt="logo" src="https://github.com/user-attachments/assets/6489ffe5-23b9-4443-91ba-6ae2d79f52fe" />
+
+<img width="600" height="200" alt="Schwarz Weiß Einfach Elegant Kontakt Newsletter Email Header (3)" src="https://github.com/user-attachments/assets/22f684a8-c7d6-44e9-bd68-5169f749bfe6" />
 
 ---
 
