@@ -1,6 +1,9 @@
-# :tv: Movie App
 
-This project is a web application that allows you to discover popular movies and TV shows. With its user-friendly interface, you can easily find and view details of your favorite content.
+<img width="300" height="300" alt="logo" src="https://github.com/user-attachments/assets/6489ffe5-23b9-4443-91ba-6ae2d79f52fe" />
+
+---
+
+>This project is a web application that allows you to discover popular movies and TV shows. With its user-friendly interface, you can easily find and view details of your favorite content.
 
 ## ✨ Features
 
