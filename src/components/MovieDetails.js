@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Navbar from "./navbar";
 import MovieApp from "./MovieApp";
 import Footer from "./Footer";
@@ -15,9 +16,9 @@ function CastItem({ actor }) {
   const IMG_PATH = "https://image.tmdb.org/t/p/w185";
 
   const getClassByRate = useCallback((popularity) => {
-    if (popularity >= 20) {
+    if (popularity >= 10) {
       return "green";
-    } else if (popularity >= 10) {
+    } else if (popularity >= 5) {
       return "orange";
     } else {
       return "red";
@@ -26,7 +27,7 @@ function CastItem({ actor }) {
 
   const popularityClass = useMemo(
     () => getClassByRate(actor.popularity),
-    [actor.popularity, getClassByRate]
+    [actor.popularity, getClassByRate],
   );
 
   return (
@@ -65,18 +66,28 @@ export default function MovieDetails({
 }) {
   const trailers = useMemo(
     () => videos.results?.filter((video) => video.type === "Trailer") || [],
-    [videos.results]
+    [videos.results],
   );
 
   const cast = useMemo(
     () =>
       credits.cast?.slice(0, 10).sort((a, b) => b.popularity - a.popularity) ||
       [],
-    [credits.cast]
+    [credits.cast],
   );
 
   return (
     <div>
+      <Head>
+        <title>{movie.title ? `${movie.title} – MovieHD` : "MovieHD"}</title>
+        <meta
+          name="description"
+          content={
+            movie.overview ||
+            `Watch details, trailers, and cast for ${movie.title} on MovieHD.`
+          }
+        />
+      </Head>
       <Navbar />
       <div className="movie-details-container">
         <div className="video-section">

@@ -10,7 +10,11 @@ function MoviePage({ data, type }) {
   return (
     <>
       <Head>
-        <title>{title} Movies</title>
+        <title>{title} Movies – MovieHD</title>
+        <meta
+          name="description"
+          content={`Browse ${title.toLowerCase()} movies. Discover trailers, cast, ratings, and more on MovieHD.`}
+        />
       </Head>
       <Navbar />
       <div className="page-container">

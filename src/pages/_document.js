@@ -7,6 +7,10 @@ export default function Document() {
         <link rel="icon" type="image/x-icon" href="/logo.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="MovieHD – Discover upcoming, popular, and top-rated movies powered by TMDB."
+        />
       </Head>
       <body>
         <Main />
