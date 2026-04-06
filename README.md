@@ -1,6 +1,10 @@
-# :tv: Movie App
 
-This project is a web application that allows you to discover popular movies and TV shows. With its user-friendly interface, you can easily find and view details of your favorite content.
+
+<img width="600" height="200" alt="Schwarz Weiß Einfach Elegant Kontakt Newsletter Email Header (3)" src="https://github.com/user-attachments/assets/22f684a8-c7d6-44e9-bd68-5169f749bfe6" />
+
+---
+
+>This project is a web application that allows you to discover popular movies and TV shows. With its user-friendly interface, you can easily find and view details of your favorite content.
 
 ## ✨ Features
 
